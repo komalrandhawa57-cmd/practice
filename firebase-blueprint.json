@@ -1,0 +1,55 @@
+{
+  "entities": {
+    "Issue": {
+      "title": "Issue",
+      "description": "A citizen-reported civic issue with coordinates, category, severity, status, and AI/agent metadata.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique string ID of the issue." },
+        "title": { "type": "string", "description": "Descriptive title." },
+        "description": { "type": "string", "description": "Full details of the reported issue." },
+        "category": { "type": "string", "enum": ["pothole", "sanitation", "streetlight", "water_leak", "traffic", "other"] },
+        "urgency": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+        "status": { "type": "string", "enum": ["reported", "verified", "investigating", "scheduled", "resolving", "resolved"] },
+        "votes": { "type": "integer" },
+        "evidenceCount": { "type": "integer" },
+        "department": { "type": "string" },
+        "repairCost": { "type": "number" },
+        "repairDuration": { "type": "string" },
+        "aiConfidence": { "type": "number" },
+        "aiReasoning": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "image": { "type": "string" },
+        "isAnonymous": { "type": "boolean" }
+      },
+      "required": ["id", "title", "description", "category", "urgency", "status", "location", "reporter", "createdAt", "image"]
+    },
+    "Prediction": {
+      "title": "Prediction",
+      "description": "An AI-predicted potential risk area with risk score, zone, and suggested preventative actions.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string", "enum": ["pothole", "sanitation", "streetlight", "water_leak", "traffic", "other"] },
+        "zone": { "type": "string" },
+        "riskScore": { "type": "number" },
+        "predictedDate": { "type": "string" },
+        "reasoning": { "type": "string" },
+        "preventativeAction": { "type": "string" },
+        "status": { "type": "string", "enum": ["mitigated", "pending", "monitoring"] }
+      },
+      "required": ["id", "title", "category", "zone", "riskScore", "predictedDate", "reasoning", "preventativeAction", "status"]
+    }
+  },
+  "firestore": {
+    "/issues/{issueId}": {
+      "schema": "Issue",
+      "description": "Collection of citizen-reported civic issues."
+    },
+    "/predictions/{predictionId}": {
+      "schema": "Prediction",
+      "description": "Collection of predictive analytics on upcoming civic failure risks."
+    }
+  }
+}

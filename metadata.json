@@ -1,0 +1,6 @@
+{
+  "name": "CivicFix AI",
+  "description": "CivicFix AI is a premium, enterprise-grade AI-powered Smart City Platform that empowers citizens and local authorities to collaboratively identify, prioritize, predict, and resolve community issues through an autonomous AI Multi-Agent system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #1A1410;
+  --color-bg-secondary: #241A15;
+  --color-surface: #2B2019;
+  --color-glass: rgba(51, 38, 31, 0.65);
+  --color-sidebar: #211814;
+  --color-card-border: #5B4638;
+  --color-copper-primary: #C96B2C;
+  --color-sand-gold: #D8A15D;
+  --color-steel-gray: #7B746D;
+  --color-primary-text: #F7F3EE;
+  --color-secondary-text: #B6AAA1;
+  --color-muted: #7F746D;
+
+  --color-info: #38BDF8;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #DC4C3E;
+
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-stats: 'Orbitron', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Custom styles for blueprint and interactive background grids */
+.blueprint-grid {
+  background-image: 
+    linear-gradient(rgba(201, 107, 44, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 107, 44, 0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.blueprint-grid-fine {
+  background-image: 
+    linear-gradient(rgba(201, 107, 44, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 107, 44, 0.02) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+.radial-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(201, 107, 44, 0.15) 0%, transparent 60%);
+}
+
+.contour-lines {
+  background-image: radial-gradient(circle at 100% 150%, transparent 24%, rgba(216, 161, 93, 0.02) 25%, rgba(216, 161, 93, 0.02) 26%, transparent 27%, transparent 34%, rgba(216, 161, 93, 0.02) 35%, rgba(216, 161, 93, 0.02) 36%, transparent 37%);
+  background-size: 200px 200px;
+}
+
+/* 3D Flip Card classes */
+.perspective-container {
+  perspective: 1200px;
+}
+
+.flip-card-inner {
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.flip-card-inner-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A1410;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5B4638;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C96B2C;
+}
+
+/* scan animation */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+
+.animate-scan {
+  animation: scan 4s linear infinite;
+}
+
+@keyframes grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 30px 30px; }
+}
+
+.animate-grid-move {
+  animation: grid-move 20s linear infinite;
+}
